@@ -4,6 +4,10 @@
 name: Playwright UI tests
 
 on:
+  push:
+    branches: '**'
+  pull_request:
+    branches: '**'
   workflow_dispatch:
     inputs:
       deployment-target:
@@ -35,7 +39,7 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
     - name: Install Playwright browsers
-      run: playwright install
+      run: npx playwright install-deps
     - name: Run all tests
       if: "github.event.inputs.deployment_target == 'All'"
       run: pytest
