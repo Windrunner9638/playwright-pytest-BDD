@@ -10,7 +10,7 @@ on:
     branches: '**'
   workflow_dispatch:
     inputs:
-      deployment-target:
+      deployment_target:
         description: Choose test suite
         required: true
         type: choice
