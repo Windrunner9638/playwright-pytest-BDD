@@ -40,6 +40,9 @@ jobs:
       run: pip install -r requirements.txt
     - name: Install Playwright browsers
       run: playwright install
+    - name: Determine deployment target
+      id: target
+      run: echo "::set-output name=deployment_target::${{ github.event.inputs.deployment_target || 'All' }}"
     - name: Run all tests
       if: "github.event.inputs.deployment_target == 'All'"
       run: pytest
