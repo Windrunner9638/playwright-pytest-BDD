@@ -83,7 +83,7 @@ jobs:
     - name: Install Playwright browsers
       run: python -m playwright install --with-deps
     - name: Download all workflow run artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v3
     - name: Run all tests
       if: "github.event.inputs.deployment_target == 'All'"
       run: pytest
@@ -117,11 +117,11 @@ jobs:
     - name: Install Allure
       run: sudo wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.tgz && sudo tar -zxvf allure-2.30.0.tgz -C /opt/ && sudo ln -s /opt/allure-2.30.0/bin/allure /usr/bin/allure
     - name: Download all workflow run artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v3
     - name: Generate Allure report
       run: allure generate -c allure_results -o _site
     - name: Save Allure report
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: _site
         path: _site
@@ -133,7 +133,7 @@ jobs:
     needs: generate-report
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
