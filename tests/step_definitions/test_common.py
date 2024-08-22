@@ -22,9 +22,15 @@ def user_interacts_with_element(base_page, action, element_name):
     else:
         raise ValueError(f"Unknown action: {action}")
 
-@then(parsers.parse("the '{element_name}' is displayed"))
-def element_is_displayed(base_page, element_name):
-    expect(base_page.map_elements(element_name)).to_be_visible()
+@then(parsers.parse("the '{element_name}' is {display_mode}"))
+def element_is_displayed(base_page, element_name, display_mode):
+    match display_mode:
+        case "displayed":
+            expect(base_page.map_elements(element_name)).to_be_visible()
+        case "hidden":
+            expect(base_page.map_elements(element_name)).to_be_hidden()
+        case _:
+            raise ValueError(f"Unknown display mode: {display_mode}")
 
 @then(parsers.parse("the '{element_name}' is not displayed"))
 def element_is_displayed(base_page, element_name):
