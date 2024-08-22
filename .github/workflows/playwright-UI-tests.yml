@@ -23,7 +23,7 @@ permissions:
   id-token: write
 
 jobs:
-  download-history:
+  #download-history:
     # if: false
     # runs-on: ubuntu-latest
     # name: Download history
