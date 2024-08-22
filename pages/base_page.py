@@ -69,6 +69,7 @@ class BasePage:
             'Rewards': BasePage.rewardsLink,
             'Offers': BasePage.offersLink,
             'mega-menu': BasePage.megaMenu,
+            'mega-menu button': BasePage.rightMegaMenuButton,
             'cart counter': BasePage.cartCounter,
             'login popup': BasePage.loginPopup,
         }

@@ -43,10 +43,14 @@ Feature: Common
     And left mega-menu contains the following items: FAN FEST 2023 - 2024 ITEMS, FEATURED ITEMS, Available Now, View all
     And All FFXIV MERCHANDISE button is displayed in the right mega-menu
 
-  Scenario: Links in the header lead to respective pages
-    Then Last Chance contains correct link
-    When user clicks on 'Last Chance'
-    Then the 'Last Chance' page is opened
-    And Just In contains correct link
-    When user clicks on 'Just In'
-    Then the 'Just In' page is opened
+  Scenario Outline: Links in the header lead to respective pages
+    Then <menu> contains correct link
+    When user clicks on '<menu>'
+    Then the '<menu>' page is opened
+
+    Examples:
+    | menu |
+    | Last Chance|
+    | Just In |
+    | Rewards |
+    | Offers |

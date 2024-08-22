@@ -32,7 +32,9 @@ def page_is_opened(playwright_page, page_name):
     page_mapping = {
         "home": Urls.HOME_URL,
         "Just In": Urls.JUST_IN_URL,
-        "Last Chance": Urls.LAST_CHANCE_URL
+        "Last Chance": Urls.LAST_CHANCE_URL,
+        "Rewards": Urls.REWARDS_URL,
+        "Offers": Urls.OFFERS_URL,
     }
     if page_name in page_mapping:
         playwright_page.goto(page_mapping[page_name])

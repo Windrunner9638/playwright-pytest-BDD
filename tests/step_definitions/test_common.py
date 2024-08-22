@@ -59,5 +59,7 @@ def check_link(base_page, element_name):
     links_mapping = {
         'Just In': Urls.JUST_IN_URL,
         'Last Chance': Urls.LAST_CHANCE_URL,
+        'Rewards': Urls.REWARDS_URL,
+        'Offers': Urls.OFFERS_URL,
     }
     assert base_page.get_link(element_name) == links_mapping[element_name]
