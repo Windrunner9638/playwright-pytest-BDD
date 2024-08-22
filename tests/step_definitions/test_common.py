@@ -57,7 +57,7 @@ def login_popup_is_displayed(base_page, quantity):
 @then(parsers.parse("{element_name} contains correct link"))
 def check_link(base_page, element_name):
     links_mapping = {
-        'Just In link': Urls.JUST_IN_URL,
-        'Last Chance link': Urls.LAST_CHANCE_URL,
+        'Just In': Urls.JUST_IN_URL,
+        'Last Chance': Urls.LAST_CHANCE_URL,
     }
     assert base_page.get_link(element_name) == links_mapping[element_name]

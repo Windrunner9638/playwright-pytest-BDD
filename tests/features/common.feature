@@ -12,16 +12,16 @@ Feature: Common
     And the 'cart button' is displayed
     And the 'cart counter' is displayed
     And cart counter is 0
-    And the 'Last Chance link' is displayed
-    And Last Chance link contains correct link
-    And the 'Just In link' is displayed
-    And Just In link contains correct link
+    And the 'Last Chance' is displayed
+    And Last Chance contains correct link
+    And the 'Just In' is displayed
+    And Just In contains correct link
     And the 'Franchise menu' is displayed
     And the 'Video Games menu' is displayed
     And the 'Merchandise menu' is displayed
     And the 'FFXIV Merchandise menu' is displayed
-    And the 'Rewards link' is displayed
-    And the 'Offers link' is displayed
+    And the 'Rewards' is displayed
+    And the 'Offers' is displayed
 
   Scenario: Expandable mega-menus contain correct items
     When user hovers over 'Franchise menu'
@@ -42,3 +42,11 @@ Feature: Common
     Then the 'mega-menu' is displayed
     And left mega-menu contains the following items: FAN FEST 2023 - 2024 ITEMS, FEATURED ITEMS, Available Now, View all
     And All FFXIV MERCHANDISE button is displayed in the right mega-menu
+
+  Scenario: Links in the header lead to respective pages
+    Then Last Chance contains correct link
+    When user clicks on 'Last Chance'
+    Then the 'Last Chance' page is opened
+    And Just In contains correct link
+    When user clicks on 'Just In'
+    Then the 'Just In' page is opened

@@ -1,6 +1,6 @@
 import pytest
 from playwright.sync_api import Page, Browser, BrowserContext
-from pytest_bdd import given, parsers
+from pytest_bdd import given, parsers, then
 
 from utils import Urls
 
@@ -27,6 +27,7 @@ def trace_test(context: BrowserContext):
 
 
 @given(parsers.parse("the '{page_name}' page is opened"))
+@then(parsers.parse("the '{page_name}' page is opened"))
 def page_is_opened(playwright_page, page_name):
     page_mapping = {
         "home": Urls.HOME_URL,
