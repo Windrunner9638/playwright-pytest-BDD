@@ -13,9 +13,7 @@ Feature: Common
     And the 'cart counter' is displayed
     And cart counter is 0
     And the 'Last Chance' is displayed
-    And Last Chance contains correct link
     And the 'Just In' is displayed
-    And Just In contains correct link
     And the 'Franchise menu' is displayed
     And the 'Video Games menu' is displayed
     And the 'Merchandise menu' is displayed

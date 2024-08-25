@@ -62,4 +62,4 @@ def check_link(base_page, element_name):
         'Rewards': Urls.REWARDS_URL,
         'Offers': Urls.OFFERS_URL,
     }
-    assert base_page.get_link(element_name) == links_mapping[element_name]
+    assert base_page.get_link(element_name) == links_mapping[element_name], f'Expected link to be {links_mapping[element_name]}, but got {base_page.get_link(element_name)}'

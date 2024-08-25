@@ -29,6 +29,12 @@ class BasePage:
     cartPreviewTitle = '.preview-cart-titles'
     cartPreviewCloseButton = '.previewCart-icon-close'
     previewCartEmptyBody = '.previewCart-emptyBody'
+    closeButton = '.eyebrow-nav-close',
+    loginButton = '.eyebrow-login-btn',
+    loginText = '.eyebrow-login-text:not(.why-join)',
+    joinButton = '.eyebrow-join-btn',
+    joinText = '.why-join'
+    joinMarkerText = '.eyebrow-login-body li'
     
     def __init__(self, playwright_page):
         self.page = playwright_page
@@ -72,6 +78,12 @@ class BasePage:
             'mega-menu button': BasePage.rightMegaMenuButton,
             'cart counter': BasePage.cartCounter,
             'login popup': BasePage.loginPopup,
+            'close button': BasePage.closeButton,
+            'login button': BasePage.loginButton,
+            'login text': BasePage.loginText,
+            'join button': BasePage.joinButton,
+            'join marker text': BasePage.joinMarkerText,
+            'join text': BasePage.joinText,
         }
 
         if element_name in element_mapping:
