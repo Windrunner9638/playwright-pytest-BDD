@@ -4,6 +4,7 @@ attrs==25.1.0
 certifi==2025.1.31
 charset-normalizer==3.4.1
 exceptiongroup==1.2.2
+execnet==2.1.1
 gherkin-official==29.0.0
 greenlet==3.1.1
 idna==3.10
@@ -20,6 +21,7 @@ pytest==8.3.4
 pytest-base-url==2.1.0
 pytest-bdd==8.1.0
 pytest-playwright==0.7.0
+pytest-xdist==3.6.1
 python-slugify==8.0.4
 requests==2.32.3
 six==1.17.0
