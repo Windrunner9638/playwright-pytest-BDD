@@ -37,7 +37,7 @@ def page_is_opened(playwright_page, page_name):
         "Offers": Urls.OFFERS_URL,
     }
     if page_name in page_mapping:
-        playwright_page.goto(page_mapping[page_name])
+        playwright_page.goto(page_mapping[page_name], wait_until='networkidle')
     else:
         raise ValueError(f"Unknown page: {page_name}")
 
