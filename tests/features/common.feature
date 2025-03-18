@@ -1,7 +1,7 @@
 Feature: Common
   # Enter feature description here
   Background:
-    Given the 'home' page is opened
+    Given the user opens the 'home' page
     And user accepts cookie policy
 
   Scenario: All elements in the header are correctly displayed
@@ -40,7 +40,7 @@ Feature: Common
     Then the 'mega-menu' is displayed
     And left mega-menu contains the following items: FINAL FANTASY XIV x LOGOS, FAN FEST 2023 - 2024 ITEMS, FEATURED ITEMS, Available Now, View all
     And All FFXIV MERCHANDISE button is displayed in the right mega-menu
-
+  
 #  Scenario Outline: Links in the header lead to respective pages
 #    Then <menu> contains correct link
 #    When user clicks on '<menu>'

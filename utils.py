@@ -8,3 +8,4 @@ class Urls:
     FFXIV_MERCHANDISE = HOME_URL + "/ffxiv-merchandise"
     REWARDS_URL = HOME_URL + "/rewards"
     OFFERS_URL = HOME_URL + "/offers"
+    LOGIN_URL = "https://membership.square-enix.com/users/sign_in"

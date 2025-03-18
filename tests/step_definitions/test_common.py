@@ -12,6 +12,28 @@ def base_page(playwright_page):
     return BasePage(playwright_page)
 
 
+@given(parsers.parse("the user opens the '{page_name}' page"))
+@when(parsers.parse("the user opens the '{page_name}' page"))
+def page_is_opened(playwright_page, page_name):
+    page_mapping = {
+        "home": Urls.HOME_URL,
+        "login": Urls.LOGIN_URL,
+        "Just In": Urls.JUST_IN_URL,
+        "Last Chance": Urls.LAST_CHANCE_URL,
+        "Rewards": Urls.REWARDS_URL,
+        "Offers": Urls.OFFERS_URL,
+    }
+    if page_name in page_mapping:
+        playwright_page.goto(page_mapping[page_name], wait_until='domcontentloaded')
+    else:
+        raise ValueError(f"Unknown page: {page_name}")
+
+
+@given("user accepts cookie policy")
+def accept_cookie_policy(playwright_page):
+    playwright_page.get_by_role("button", name="Accept").click()
+
+
 @when(parsers.parse("user {action} '{element_name}'"))
 def user_interacts_with_element(base_page, action, element_name):
     element = base_page.map_elements(element_name)

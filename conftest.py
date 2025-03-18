@@ -6,6 +6,11 @@ from utils import Urls
 
 
 @pytest.fixture
+def shared_data():
+    return {}
+
+
+@pytest.fixture
 def playwright_page(page: Page):
     yield page
     page.close()
@@ -24,24 +29,3 @@ def trace_test(context: BrowserContext):
     context.tracing.start(name='playwright', screenshots=True, snapshots=True, sources=True)
     yield
     context.tracing.stop(path='trace.zip')
-
-
-@given(parsers.parse("the '{page_name}' page is opened"))
-@then(parsers.parse("the '{page_name}' page is opened"))
-def page_is_opened(playwright_page, page_name):
-    page_mapping = {
-        "home": Urls.HOME_URL,
-        "Just In": Urls.JUST_IN_URL,
-        "Last Chance": Urls.LAST_CHANCE_URL,
-        "Rewards": Urls.REWARDS_URL,
-        "Offers": Urls.OFFERS_URL,
-    }
-    if page_name in page_mapping:
-        playwright_page.goto(page_mapping[page_name], wait_until='networkidle')
-    else:
-        raise ValueError(f"Unknown page: {page_name}")
-
-
-@given("user accepts cookie policy")
-def accept_cookie_policy(playwright_page):
-    playwright_page.get_by_role("button", name="Accept").click()
